@@ -32,9 +32,7 @@ app.MapPost("/AddUser", async (UserCRUD userService) =>
         return Results.BadRequest("Error adding user");
     }
 });
-
 app.Run();
-
 internal record UserCRUD(string firstName, string lastName, int age)
 {
     public async Task<bool> AddUser(string firstNam, string lastName, int age)
@@ -56,6 +54,5 @@ internal record UserCRUD(string firstName, string lastName, int age)
         {
             return false;
         }
-
     }
 }

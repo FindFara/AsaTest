@@ -1,11 +1,14 @@
 using Grpc.API.Services;
 using Infrastructure;
+using Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddGrpc();
 builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddApplicationServices();
+
 
 var app = builder.Build();
 
