@@ -1,11 +1,6 @@
 ﻿using Application.Servises.Users.ViewModel;
 using Domain.Repositories;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Servises.Users.Query;
 
@@ -15,15 +10,24 @@ public class GetUser : IRequest<User_VM>
 }
 public class GetUserHandler : IRequestHandler<GetUser, User_VM>
 {
-    private readonly IUserRepository user;
+    private readonly IUserRepository userRepository;
 
     public GetUserHandler(IUserRepository user)
     {
-        this.user = user;
+        this.userRepository = user;
     }
-    public Task<User_VM> Handle(GetUser request, CancellationToken cancellationToken)
+    public async Task<User_VM> Handle(GetUser request, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        var userDb = await userRepository.GetUserByIdAsync(request.UserId);
+        var user = new User_VM()
+        {
+            FirstName = userDb.FirstName,
+            LastName = userDb.LastName,
+            Age = userDb.Age,
+            Created = userDb.Created,
+            LastModified = userDb.LastModified,
+        };
+        return user;
     }
 }
 

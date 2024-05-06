@@ -19,7 +19,6 @@ internal class UpdateUserHandler : IRequestHandler<UpdateUser, bool>
     }
     public async Task<bool> Handle(UpdateUser request, CancellationToken cancellationToken)
     {
-
         var user = new User()
         {
             FirstName = request.User.FirstName,
@@ -28,12 +27,14 @@ internal class UpdateUserHandler : IRequestHandler<UpdateUser, bool>
             Created = request.User.Created,
             LastModified = request.User.LastModified,
         };
-        var updateUser = userRepository.UpdateUserAsync(user);
-
-        if (updateUser.Status == TaskStatus.RanToCompletion)
+        try
         {
+            await userRepository.UpdateUserAsync(user);
             return true;
         }
-        return false;
+        catch (Exception ex)
+        {
+            return false;
+        }
     }
 }

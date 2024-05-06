@@ -1,0 +1,11 @@
+@Client.WebAPI_HostAddress = http://localhost:5251
+
+post {{Client.WebAPI_HostAddress}}/ss
+Content-Type: application/json
+
+{
+  "name" :"fara",
+
+}
+
+###

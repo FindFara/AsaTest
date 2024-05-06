@@ -20,6 +20,9 @@
     <Protobuf Include="..\..\server\presentation\Grpc.API\Protos\greet.proto" GrpcServices="Client">
       <Link>Protos\greet.proto</Link>
     </Protobuf>
+    <Protobuf Include="..\..\Server\Presentation\Grpc.API\Protos\User.proto" GrpcServices="Client" Access="Public">
+      <Link>Protos\User.proto</Link>
+    </Protobuf>
   </ItemGroup>
 
 </Project>

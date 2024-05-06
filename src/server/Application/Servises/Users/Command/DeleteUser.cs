@@ -19,7 +19,6 @@ internal class DeleteUserHandler : IRequestHandler<DeleteUser, bool>
     }
     public async Task<bool> Handle(DeleteUser request, CancellationToken cancellationToken)
     {
-
         var user = new User()
         {
             FirstName = request.User.FirstName,
@@ -28,12 +27,14 @@ internal class DeleteUserHandler : IRequestHandler<DeleteUser, bool>
             Created = request.User.Created,
             LastModified = request.User.LastModified,
         };
-        var updateUser = userRepository.DeleteUserAsync(user);
-
-        if (updateUser.Status == TaskStatus.RanToCompletion)
+        try
         {
+            await userRepository.DeleteUserAsync(user);
             return true;
         }
-        return false;
+        catch (Exception ex)
+        {
+            return false;
+        }
     }
 }

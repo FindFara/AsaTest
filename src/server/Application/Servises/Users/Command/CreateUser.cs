@@ -32,12 +32,15 @@ internal class GetUserHandler : IRequestHandler<CreateUser, bool>
             Created = request.User.Created,
             LastModified = request.User.LastModified,
         };
-        var addUser = userRepository.AddUserAsync(user);
-
-        if (addUser.Status == TaskStatus.RanToCompletion)
+        try
         {
+            await userRepository.AddUserAsync(user);
             return true;
         }
-        return false;
+        catch (Exception ex)
+        {
+            return false; 
+        }
+
     }
 }
