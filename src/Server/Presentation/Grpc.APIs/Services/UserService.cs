@@ -1,16 +1,17 @@
-﻿using Application.Servises.Users.Command;
+using Application.Servises.Users.Command;
 using Application.Servises.Users.Query;
 using Application.Servises.Users.ViewModel;
+using Grpc.APIs;
 using Grpc.Core;
 using MediatR;
 
-namespace Grpc.API.Services
+namespace Grpc.APIs.Services
 {
     public class UserServices : UserService.UserServiceBase
     {
         private readonly IMediator mediator;
 
-        public UserServices( IMediator mediator)
+        public UserServices(IMediator mediator)
         {
             this.mediator = mediator;
         }

@@ -14,7 +14,7 @@ public class CreateUser : IRequest<bool>
 {
     public User_VM User { get; set; } = new User_VM();
 }
-internal class GetUserHandler : IRequestHandler<CreateUser, bool>
+public class GetUserHandler : IRequestHandler<CreateUser, bool>
 {
     private readonly IUserRepository userRepository;
 

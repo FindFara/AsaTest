@@ -9,7 +9,7 @@ public class DeleteUser : IRequest<bool>
 {
     public User_VM User { get; set; } = new User_VM();
 }
-internal class DeleteUserHandler : IRequestHandler<DeleteUser, bool>
+public class DeleteUserHandler : IRequestHandler<DeleteUser, bool>
 {
     private readonly IUserRepository userRepository;
 

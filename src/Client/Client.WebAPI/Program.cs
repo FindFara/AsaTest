@@ -1,4 +1,4 @@
-using Grpc.API;
+using Grpc.APIs;
 using Grpc.Net.Client;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -39,7 +39,7 @@ internal record UserCRUD(string firstName, string lastName, int age)
     {
         try
         {
-            GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:5228");
+            GrpcChannel channel = GrpcChannel.ForAddress("http://localhost:5010");
             UserService.UserServiceClient userClient = new UserService.UserServiceClient(channel);
             var request = new User
             {

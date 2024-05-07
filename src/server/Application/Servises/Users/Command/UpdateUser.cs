@@ -9,7 +9,7 @@ public class UpdateUser : IRequest<bool>
 {
     public User_VM User { get; set; } = new User_VM();
 }
-internal class UpdateUserHandler : IRequestHandler<UpdateUser, bool>
+public class UpdateUserHandler : IRequestHandler<UpdateUser, bool>
 {
     private readonly IUserRepository userRepository;
 

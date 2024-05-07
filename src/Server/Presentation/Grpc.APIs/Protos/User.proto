@@ -1,8 +1,8 @@
-﻿syntax = "proto3";
+syntax = "proto3";
 
-option csharp_namespace = "Grpc.API";
+option csharp_namespace = "Grpc.APIs";
 
-package User;
+package greet;
 
 service UserService {
   rpc CreateUser (User) returns (Response);
@@ -10,6 +10,7 @@ service UserService {
   rpc DeleteUser (User) returns (Response);
   rpc GetUser (GetUserRequest) returns (User);
 }
+
 
 message User {
   string firstName = 1;
