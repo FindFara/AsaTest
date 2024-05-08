@@ -21,6 +21,7 @@ public class GetUserHandler : IRequestHandler<GetUser, User_VM>
         var userDb = await userRepository.GetUserByIdAsync(request.UserId);
         var user = new User_VM()
         {
+            Id = request.UserId,
             FirstName = userDb.FirstName,
             LastName = userDb.LastName,
             Age = userDb.Age,
