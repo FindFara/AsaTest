@@ -1,11 +1,12 @@
 @Client.WebAPI_HostAddress = http://localhost:5251
 
-post {{Client.WebAPI_HostAddress}}/ss
+post {{Client.WebAPI_HostAddress}}/AddUser
 Content-Type: application/json
 
 {
-  "name" :"fara",
-
+  "firstName" :"fara",
+  "lastName" :"khakpour",
+  "age":"23",
 }
 
 ###
