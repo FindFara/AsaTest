@@ -2,11 +2,6 @@
 using Domain.Entities.Users;
 using Domain.Repositories;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Servises.Users.Command;
 
@@ -14,11 +9,11 @@ public class CreateUser : IRequest<bool>
 {
     public User_VM User { get; set; } = new User_VM();
 }
-public class GetUserHandler : IRequestHandler<CreateUser, bool>
+public class CreateUserHandler : IRequestHandler<CreateUser, bool>
 {
     private readonly IUserRepository userRepository;
 
-    public GetUserHandler(IUserRepository user)
+    public CreateUserHandler(IUserRepository user)
     {
         userRepository = user;
     }
